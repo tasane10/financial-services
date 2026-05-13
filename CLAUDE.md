@@ -50,3 +50,4 @@ Run `python3 scripts/check.py` before committing — it lints every manifest, ve
 <!-- Personal fork for learning/experimentation — not for production use -->
 - I'm primarily exploring the `vertical-plugins/` structure and how skills map to agent bundles.
 - Useful reminder: always run `sync-agent-skills.py` *after* `check.py` fails on drift, not before.
+- The correct order for a clean deploy: `check.py` → `sync-agent-skills.py` → `check.py` again → `deploy-managed-agent.sh`.
