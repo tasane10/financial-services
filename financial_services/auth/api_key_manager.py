@@ -30,14 +30,23 @@ class APIKey:
         return self.is_active and not self.is_expired()
 
 
+# Default TTL of 90 days for generated keys; override per-call as needed.
+_DEFAULT_TTL_SECONDS = 90 * 24 * 60 * 60  # 7,776,000 seconds
+
+
 class APIKeyManager:
     """Manages API keys for financial service integrations."""
 
     def __init__(self) -> None:
         self._keys: dict[str, APIKey] = {}
 
-    def generate_key(self, service_name: str, ttl_seconds: Optional[int] = None) -> tuple[str, str]:
+    def generate_key(self, service_name: str, ttl_seconds: Optional[int] = _DEFAULT_TTL_SECONDS) -> tuple[str, str]:
         """Generate a new API key pair (key_id, secret).
+
+        Args:
+            service_name: Name of the service this key is issued for.
+            ttl_seconds: Lifetime of the key in seconds. Defaults to 90 days.
+                         Pass None to create a non-expiring key.
 
         Returns:
             Tuple of (key_id, raw_secret). The raw_secret is only returned once.
