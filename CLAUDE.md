@@ -44,3 +44,9 @@ Run `python3 scripts/check.py` before committing — it lints every manifest, ve
 1. Edit markdown files directly - changes take effect immediately
 2. Test commands with `/plugin:command-name` syntax
 3. Skills are invoked automatically when their trigger conditions match
+
+## Personal Notes
+
+<!-- Personal fork for learning/experimentation — not for production use -->
+- I'm primarily exploring the `vertical-plugins/` structure and how skills map to agent bundles.
+- Useful reminder: always run `sync-agent-skills.py` *after* `check.py` fails on drift, not before.
