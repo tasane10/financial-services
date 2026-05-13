@@ -88,4 +88,6 @@ class APIKeyManager:
 
     @staticmethod
     def _hash_secret(secret: str) -> str:
+        # Using SHA-256 via hashlib; pbkdf2_hmac would be stronger but adds
+        # latency on every validation call — fine for this use case.
         return hashlib.sha256(secret.encode()).hexdigest()
