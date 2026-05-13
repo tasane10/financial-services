@@ -33,6 +33,11 @@ class TestAPIKeyGeneration:
         info = manager.get_key_info(key_id)
         assert info.expires_at is None
 
+    def test_generate_with_zero_ttl_expires_immediately(self, manager):
+        # Edge case: ttl_seconds=0 should result in an already-expired key
+        key_id, secret = manager.generate_key("service-z", ttl_seconds=0)
+        assert manager.validate_key(key_id, secret) is False
+
 
 class TestAPIKeyValidation:
     def test_valid_key_passes_validation(self, manager):
@@ -76,5 +81,13 @@ class TestAPIKeyModel:
         key = APIKey(
             key_id="abc", hashed_secret="xyz", service_name="svc",
             expires_at=time.time() - 1
+        )
+        assert key.is_valid() is False
+
+    def test_key_is_invalid_when_inactive(self):
+        # Explicitly check that is_active=False alone invalidates the key
+        key = APIKey(
+            key_id="abc", hashed_secret="xyz", service_name="svc",
+            is_active=False
         )
         assert key.is_valid() is False
