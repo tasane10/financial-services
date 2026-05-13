@@ -30,8 +30,9 @@ class APIKey:
         return self.is_active and not self.is_expired()
 
 
-# Default TTL of 90 days for generated keys; override per-call as needed.
-_DEFAULT_TTL_SECONDS = 90 * 24 * 60 * 60  # 7,776,000 seconds
+# Default TTL of 30 days for generated keys; 90 days felt too long for
+# financial service credentials — rotating more frequently is safer.
+_DEFAULT_TTL_SECONDS = 30 * 24 * 60 * 60  # 2,592,000 seconds
 
 
 class APIKeyManager:
@@ -45,7 +46,7 @@ class APIKeyManager:
 
         Args:
             service_name: Name of the service this key is issued for.
-            ttl_seconds: Lifetime of the key in seconds. Defaults to 90 days.
+            ttl_seconds: Lifetime of the key in seconds. Defaults to 30 days.
                          Pass None to create a non-expiring key.
 
         Returns:
