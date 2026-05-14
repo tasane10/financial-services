@@ -30,9 +30,9 @@ class APIKey:
         return self.is_active and not self.is_expired()
 
 
-# Default TTL of 30 days for generated keys; 90 days felt too long for
-# financial service credentials — rotating more frequently is safer.
-_DEFAULT_TTL_SECONDS = 30 * 24 * 60 * 60  # 2,592,000 seconds
+# Default TTL of 14 days for generated keys; the upstream default of 30 days
+# felt too long for my use case — tightening the rotation window further.
+_DEFAULT_TTL_SECONDS = 14 * 24 * 60 * 60  # 1,209,600 seconds
 
 
 class APIKeyManager:
@@ -46,7 +46,7 @@ class APIKeyManager:
 
         Args:
             service_name: Name of the service this key is issued for.
-            ttl_seconds: Lifetime of the key in seconds. Defaults to 30 days.
+            ttl_seconds: Lifetime of the key in seconds. Defaults to 14 days.
                          Pass None to create a non-expiring key.
 
         Returns:
@@ -88,6 +88,4 @@ class APIKeyManager:
 
     @staticmethod
     def _hash_secret(secret: str) -> str:
-        # Using SHA-256 via hashlib; pbkdf2_hmac would be stronger but adds
-        # latency on every validation call — fine for this use case.
-        return hashlib.sha256(secret.encode()).hexdigest()
+        # Using SHA
