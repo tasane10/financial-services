@@ -6,6 +6,10 @@ Admin tooling for configuring the Claude Office add-in to call your own cloud
 > **Personal note:** I'm using this with AWS Bedrock. The `setup` wizard handles
 > most of the heavy lifting — just make sure your IAM role has `bedrock:InvokeModel`
 > permissions before running it.
+>
+> **Tip:** If you're in `us-east-1` like me, set `AWS_DEFAULT_REGION=us-east-1` in
+> your environment before running `setup` — the wizard doesn't always pick it up
+> automatically and will prompt you for it mid-run.
 
 ## Install
 
