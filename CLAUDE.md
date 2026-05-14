@@ -52,4 +52,4 @@ Run `python3 scripts/check.py` before committing — it lints every manifest, ve
 - Useful reminder: always run `sync-agent-skills.py` *after* `check.py` fails on drift, not before.
 - The correct order for a clean deploy: `check.py` → `sync-agent-skills.py` → `check.py` again → `deploy-managed-agent.sh`.
 - Currently digging into the `wealth-management` vertical.
-- TODO: trace how `steering-examples.json` influences subagent routing in the wealth-management cookbook — the link between examples and actual dispatch logic isn't obvious yet.
+- Next up: compare how `wealth-management` and `retail-banking` verticals structure their skills — curious whether skill trigger conditions differ meaningfully between the two.
