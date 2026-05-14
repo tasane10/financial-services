@@ -17,6 +17,11 @@ Usage example::
     @require_api_key
     def fetch_account_data(key_id: str, api_secret: str, account_id: str):
         return {"account_id": account_id, "balance": 0.0}
+
+Notes (personal fork):
+    - Default TTL for generated keys is 86400s (24h). For local dev/testing,
+      consider passing ttl_seconds=3600 (1h) to generate_key() to limit
+      exposure if a key is accidentally logged.
 """
 
 from financial_services.auth.api_key_manager import APIKey, APIKeyManager
