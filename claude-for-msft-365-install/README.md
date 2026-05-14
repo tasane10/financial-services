@@ -3,6 +3,10 @@
 Admin tooling for configuring the Claude Office add-in to call your own cloud
 (Vertex AI, Bedrock, or an LLM gateway) instead of Anthropic's API.
 
+> **Personal note:** I'm using this with AWS Bedrock. The `setup` wizard handles
+> most of the heavy lifting — just make sure your IAM role has `bedrock:InvokeModel`
+> permissions before running it.
+
 ## Install
 
 ```bash
