@@ -6,9 +6,9 @@
     "name": "Anthropic",
     "email": "support@anthropic.com"
   },
-  "_personal_notes": "Forked for learning purposes - studying how Claude integrates with M365 admin consent flow and Graph API extension attributes.",
+  "_personal_notes": "Forked for learning purposes - studying how Claude integrates with M365 admin consent flow and Graph API extension attributes. Switching default to us-west-2 since that's the region my AWS sandbox account is set up in.",
   "defaults": {
     "llm_backend": "bedrock",
-    "region": "us-east-1"
+    "region": "us-west-2"
   }
 }
