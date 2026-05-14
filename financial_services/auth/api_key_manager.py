@@ -86,6 +86,15 @@ class APIKeyManager:
         """Retrieve metadata for a given key ID."""
         return self._keys.get(key_id)
 
+    def list_active_keys(self, service_name: Optional[str] = None) -> list[APIKey]:
+        """Return all currently valid keys, optionally filtered by service name."""
+        return [
+            k for k in self._keys.values()
+            if k.is_valid() and (service_name is None or k.service_name == service_name)
+        ]
+
     @staticmethod
     def _hash_secret(secret: str) -> str:
-        # Using SHA
+        # Using SHA-256 via hashlib; a proper deployment should use bcrypt or
+        # similar, but this is fine for my local/learning setup.
+        return hashlib.sha256(secret.encode()).hexdigest()
