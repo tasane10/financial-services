@@ -51,3 +51,5 @@ Run `python3 scripts/check.py` before committing — it lints every manifest, ve
 - I'm primarily exploring the `vertical-plugins/` structure and how skills map to agent bundles.
 - Useful reminder: always run `sync-agent-skills.py` *after* `check.py` fails on drift, not before.
 - The correct order for a clean deploy: `check.py` → `sync-agent-skills.py` → `check.py` again → `deploy-managed-agent.sh`.
+- Currently digging into the `wealth-management` vertical — specifically how the portfolio-review skill triggers vs. the tax-optimization skill.
+- Note to self: `validate.py` is distinct from `check.py` — validate covers schema correctness, check covers cross-reference integrity. Don't mix them up.
