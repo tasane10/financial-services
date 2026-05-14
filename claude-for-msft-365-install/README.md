@@ -14,6 +14,10 @@ Admin tooling for configuring the Claude Office add-in to call your own cloud
 > **Tip:** Also export `AWS_PROFILE` if you're using named profiles (e.g.
 > `export AWS_PROFILE=my-bedrock-profile`) — the wizard doesn't read `~/.aws/config`
 > profiles automatically either.
+>
+> **Tip:** Run `aws bedrock list-foundation-models --region us-east-1 | grep claude`
+> to confirm which Claude model IDs are available in your region before setup —
+> the wizard will ask for a model ID and it's easy to typo these.
 
 ## Install
 
