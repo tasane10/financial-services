@@ -5,5 +5,10 @@
   "author": {
     "name": "Anthropic",
     "email": "support@anthropic.com"
+  },
+  "_personal_notes": "Forked for learning purposes - studying how Claude integrates with M365 admin consent flow and Graph API extension attributes.",
+  "defaults": {
+    "llm_backend": "bedrock",
+    "region": "us-east-1"
   }
 }
