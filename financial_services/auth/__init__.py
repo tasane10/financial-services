@@ -22,6 +22,9 @@ Notes (personal fork):
     - Default TTL for generated keys is 86400s (24h). For local dev/testing,
       consider passing ttl_seconds=3600 (1h) to generate_key() to limit
       exposure if a key is accidentally logged.
+    - To list all active keys and their expiry times, iterate over
+      manager.list_keys() and check the `expires_at` field on each APIKey.
+      Handy for debugging expired-key errors locally.
 """
 
 from financial_services.auth.api_key_manager import APIKey, APIKeyManager
