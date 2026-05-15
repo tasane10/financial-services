@@ -55,6 +55,9 @@ def extract_credentials_from_header(auth_header: str) -> tuple[str, str]:
 
     Raises:
         ValueError: If header format is invalid.
+
+    Note: The scheme prefix check is case-sensitive ('ApiKey', not 'apikey'
+    or 'APIKEY'). Clients must use the exact casing.
     """
     if not auth_header or not auth_header.startswith("ApiKey "):
         raise ValueError("Authorization header must use 'ApiKey' scheme.")
