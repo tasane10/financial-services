@@ -12,6 +12,8 @@ Everything here is available **two ways from one source**: install it as a [Clau
 >
 > **My active agents:** Market Researcher, Earnings Reviewer
 > **Sectors I cover:** semiconductors, cloud infrastructure, enterprise software
+>
+> **TODO:** Try the Model Builder for DCF work on ASML and ARM next earnings cycle.
 
 What's in the repo:
 
@@ -30,5 +32,4 @@ Each agent plugin is **self-contained** — it bundles the skills it uses, so in
 | | **[Meeting Prep Agent](./plugins/agent-plugins/meeting-prep-agent)** | Briefing pack before every client meeting |
 | **Research & modeling** | **[Market Researcher](./plugins/agent-plugins/market-researcher)** | Sector or theme → industry overview, competitive landscape, peer comps, ideas shortlist |
 | | **[Earnings Reviewer](./plugins/agent-plugins/earnings-reviewer)** | Earnings call + filings → model update → note draft |
-| | **[Model Builder](./plugins/agent-plugins/model-builder)** | DCF, LBO, 3-statement, comps — live in Excel |
-| **Fund admin & finance ops** | **[Valuation Reviewer](./plugins/agent-plugins/valuation-reviewer)** | Ingests GP packages, runs val
+| | **[Model Builder](./plugins/agent-plugins/model-builder)** | DCF, LBO, 3-statement, comps — live |
